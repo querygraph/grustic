@@ -49,6 +49,12 @@ Capitola's local C scalar/recovery references, and Claude's source handoff.
 The full review distinguishes observed source behavior, historical test results
 and recommendations. No old gate is presented as a Grustic verdict.
 
+Claude's packet review sharpened the host boundary: current memory leases cover
+driver regions, product worker evidence is in-process, and continuous data/control
+isolation belongs to the separate redesign chain. The plan now names the required
+new resource contracts and process gates, and separates the generic host port
+from Nutmeg integration. The future continuous host still awaits design decisions.
+
 The largest architectural risks are losing graph structure before optimization,
 confusing source identity with kernel indices, forcing local CSR on every
 workload, treating scalar ABI work as general extension compatibility, and

@@ -56,3 +56,25 @@ Native driver retry and job drainage are explicit contracts to preserve or
 extend deliberately. Current batch graph materializations and proposed continuous
 composition have separate acceptance tests. Source revisions, owner directions
 and maintainer acceptance remain distinct throughout the packet.
+
+## Packet review and six corrections
+
+Claude reviewed documentation commit `d05ceba` at
+`2026-11-13T22:19:18.728276+00:00` in the same locked log. The reviewed files were
+`HUMAN-REVIEW.md`, `04-sail-integration.md` and `06-commit-sequence.md`. He checked
+product/redesign sources and performed no build. The following corrections were
+incorporated; this records their disposition, not approval of the revised text.
+
+| Finding | Correction and source check |
+| --- | --- |
+| Scalars have no current native lease | `manifest.rs` accepts `memory_bytes` only for driver placement; `extensions/mod.rs` refuses driver scalar exports. The plan makes scalar/worker admission new work under N4/C15b. |
+| Product worker evidence is in-process | `abi-merged-tree-matrix.json` explicitly records `process-cluster` as an in-process actor cluster. The host refuses distributed non-driver relations. C15a/C21 now require actual separate-process or Kubernetes worker evidence. |
+| Expression/control isolation belongs to the redesign | Projection `62e180afe` evaluates data runs and constructs marker placeholders; filter `c442efdb7dc4a43f9a7786b2b0f4d2d3874db13c` forwards marker slices without predicate evaluation. These functions were inspected via SSH. Continuous scalar claims require the isolation changes and a combined gate. |
+| Product and future continuous host were insufficiently distinguished | `99dc47788` remains the bounded microbatch product and batch materialized-view control. The future continuous host is undefined pending design decisions. A9 streaming refusals qualify only the product runtime. |
+| Exact locks do not fix incompatible dependency floors | C0/N6 require the published adapter dependency closure to allow the host's Arrow/DataFusion versions. Logical core crates keep neither engine dependency. |
+| Generic host port need not depend on Grustic kernels | C14a ports the generic host contracts independently; C14b depends on C10 for Nutmeg-specific qualification. Batch Comet integration remains independent of both. |
+
+The A9 source was also checked for eager analysis: its graph-table constructor
+runs outside the pipeline query function. The qualification plan now preserves
+that guard as well as effect-free dry runs. The source observations above do not
+add runtime evidence or imply maintainers accepted the continuous foundation.

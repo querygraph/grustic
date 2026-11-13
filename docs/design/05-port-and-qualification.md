@@ -91,9 +91,10 @@ must not be presented as exact original-graph algorithm output.
 | Optimizer | Resolved/optimized answers agree; legality barriers and unknown estimates survive; actual physical plans and all slower cases retained |
 | SQL/native implementations | Same semantic requests and outputs, including conversion costs and out-of-budget refusal; no silent algorithm substitution |
 | GraphFrames clients | Pinned public calls on classic Spark, Spark Connect and Sail Connect; exact schemas, errors, expressions and downstream DataFrame composition |
-| Native package boundary | Real independent artifacts, loader/worker mismatches, fields, slices, cancellation and retained-output release |
+| Native package boundary | Independent artifacts; loader mismatches across actual separate-process or Kubernetes workers; fields, slices, cancellation and retained-output release; actor-only tests labeled separately |
+| Native resource admission | Current driver leases distinguished from new scalar/worker contracts; dependency floors permit the exact host pins outside the workspace |
 | Stateful execution | No automatic retry of indeterminate driver mutations; session/attempt isolation, cancellation and explicit producer completion where claimed |
-| Pipelines | Effect-free registration/dry run, matching graph snapshots, exact accepted writes, takeover, lost replies and restart under the declared failure model |
+| Pipelines | Batch materialized views qualified separately from proposed continuous execution; no eager analysis in query functions; matching snapshots, accepted writes, takeover, lost replies and restart under the declared failure model |
 | Cosmolang | SDK browser tests plus independent HTTP/MCP controls; stale responses, caps, collapse round trips, quotient edges and lossless IDs |
 | New combined host | Exact merged-source gate, not the sum of component verdicts; default and supported optional features recorded |
 
@@ -119,7 +120,10 @@ Report complete DataFrame-to-DataFrame or Parquet-in/Parquet-out work as agreed
 for each comparison. Retain read, decode/map/projection, algorithm and write
 costs where the measurement can actually separate them. Measure one call and
 repeated calls on the same snapshot, cold and warm caches, local and distributed
-placement, compilation, memory and transfer volume. Charge precomputation and
+placement, compilation, memory and transfer volume. State the actual worker
+topology and algorithm placement: an actor cluster in one process is not
+separate-process evidence; a driver-local algorithm is not distributed execution.
+Charge precomputation and
 index construction, with reuse count, instead of hiding them outside the claim.
 
 Use optimized native builds and matched CPU/memory budgets. VMs serve Linux

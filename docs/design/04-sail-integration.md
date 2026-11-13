@@ -1,8 +1,9 @@
 # Nutmeg execution through Sail's extension and pipeline contracts
 
 Nutmeg should execute graph operations inside Sail while returning ordinary
-composable DataFrames. Sail owns task execution, memory admission, cancellation
-and publication. Grustic supplies semantic plans and graph implementations.
+composable DataFrames. The proposed ownership puts task execution, memory
+admission, cancellation and publication in Sail. Grustic supplies semantic plans
+and graph implementations. Current native interfaces only partly provide this.
 
 **Proposal:** preserve the working native relation route, add the Comet scalar
 route explicitly, and integrate both with the chosen Sail runtime in separate
@@ -12,17 +13,22 @@ pipeline proves their combined behavior.
 ## The actual starting points
 
 The [source inventory](../review/sources.md) pins three distinct references.
-`99dc47788` is the pushed SDP product with the working extension host. The
-repaired scalar component is local-only `bfdecbcf9`. The local append-recovery
-reference is `37837d20a`, based on upstream `b52144955`. These are not one
-qualified combined host. P5 `ef7286ca2` is an earlier prototype.
+`99dc47788` is the pushed SDP product with the working extension host and a
+bounded microbatch runtime for streaming tables and AutoCDC. Maintainers declined
+that runtime; it remains the batch compatibility control, not the continuous
+foundation. The repaired scalar component is local-only `bfdecbcf9`. The local
+append-recovery reference is `37837d20a`, based on upstream `b52144955`. These
+are not one qualified combined host. P5 `ef7286ca2` is an earlier prototype.
 
 On the product reference, Python entry points in `pysail.extensions` discover
 packages. Manifests are checked before binding native objects; host identity
 comes from `Cargo.lock` at build time. Nutmeg pins DataFusion 55.2.0 and Arrow
 59.2.0, and its vendored graph adapter uses Grust 0.24.1. A Grustic adapter that
 crosses the same DataFusion FFI must inherit the selected host's exact pins.
-Do not import those pins into the engine-independent core.
+Its published dependency floors must also allow those versions: a floor above
+Arrow 59.2.0 or DataFusion 55.2.0 would prevent this integration even if a workspace
+lockfile passed. Test the published adapter dependency closure outside the
+workspace. Do not import these engine dependencies into the logical core.
 
 The existing native relation is a session-owned region placed on the driver
 in cluster mode, or the local session process in local mode. Host inputs and
@@ -30,11 +36,20 @@ frozen plan identity are explicit. Retry is disabled for that region; an
 unacknowledged mutation can be indeterminate. The new design must retain that
 outcome until a separate replay protocol is implemented and verified.
 
+Product extension tests called `process-cluster` actually used an in-process
+actor cluster. This tree lacks the separate-process worker launcher from the
+earlier extensions branch. Distributed sessions refuse non-driver extensions
+that declare relations. A worker loader in source does not establish that code,
+configuration and ownership cross a process boundary correctly.
+
 Capitola's reply confirms the owner directions: continuous StreamSource
 execution, the additional C scalar boundary independent of streaming,
 commit-time rejection of obsolete writers for every admitted durable target,
 and strict typed configuration. The detailed host mechanisms remain proposals
 for maintainers. Design agreement precedes dependent host changes.
+The future continuous host is not selected: memo decisions 1 and 4 on execution
+ownership and native interfaces remain unanswered, as does the operator-isolation
+choice. Keep that host an explicit prerequisite, not an implied existing target.
 
 ## Keep three native boundaries distinct
 
@@ -42,7 +57,7 @@ for maintainers. Design agreement precedes dependent host changes.
 | --- | --- | --- |
 | Existing DataFusion FFI | Native relation planning/execution and existing scalar packages | Preserve exact build admission, package identity, driver placement, input binding, cleanup and errors |
 | Comet Arrow C scalar interface | Trusted immutable scalar kernels over Arrow fields and arrays | Pin producer/layout; add explicit per-export selection, package loading and worker identity |
-| Native memory lease | Host-funded quota retained while allocations/results need it | Preserve ownership; add a separate job completion contract if per-job drainage is required |
+| Native memory lease | Current driver-native quota retained while allocations/results need it | Preserve ownership; scalar/worker admission and per-job producer completion require new contracts |
 
 Comet's scalar interface does not define table providers, async streams,
 projection handles or algorithms. A C relation boundary remains a separate
@@ -71,10 +86,17 @@ code retention from session state is required work. Bound repeated library loads
 and identify actual content. A library retained after a discovery refusal still
 consumes resources. A manifest cannot make untrusted native code safe.
 
-Native kernels use a host executor and admitted memory. Charge staging, ID maps,
-forward/reverse adjacency, scratch, features and outputs, including peak overlap
-during construction. Retained Arrow slices keep the relevant memory admission
-alive. A projection cache is bounded and keyed by graph snapshot, selected
+The proposed kernel contract uses host execution and admitted memory. Today
+`memory_bytes` is accepted only for driver placement, and driver extensions
+cannot export scalars. Scalars run with placement `any` and no native memory
+lease. Scalar and worker admission are therefore new work under N4/C15b, not
+guarantees inherited from the Comet ABI or the product host.
+
+The new contract must charge staging, ID maps, forward/reverse adjacency,
+scratch, features and outputs, including peak construction overlap. Retained
+Arrow slices must retain the relevant admission. Native allocation accounting
+needs an explicit cooperation or reservation contract; a host cannot infer it
+from an arbitrary callback. Bound projection caches by graph snapshot, selected
 features, orientation and implementation contract.
 
 The current lease tracks admissions and their final owners, not a count of
@@ -90,8 +112,11 @@ A pipeline declaration describes desired tables and their dependency graph.
 Registration and dry-run analysis should construct and validate plans without
 staging a graph, running an algorithm or writing files. The existing A9 product
 increment admits extension relations as batch sources for materialized views;
-it refuses a streaming flow over such a relation. Preserve that tested boundary
-while adding any broader composition deliberately.
+its bounded microbatch runtime refuses a streaming flow over such a relation.
+This is not a continuous StreamSource verdict. The A9 graph-table test constructs
+`GraphTables` outside the query function because its schema inspection is
+forbidden during pipeline query construction. Preserve this distinction between
+effect-free plan construction and eager remote analysis.
 
 A useful first graph pipeline reads pinned vertex and edge tables, produces
 selected graph data and hierarchy/layout artifacts, and publishes a manifest
@@ -110,10 +135,17 @@ the request contract.
 ## Join the continuous runtime without inventing graph recovery
 
 A StreamSource describes a live reader owned by the executing task. Its data
-and control messages include progress and completion boundaries. A scalar
-kernel receives only data; Sail preserves control ordering and retractions.
-The new Comet bridge must pass this through package and worker execution tests,
-not just standalone array calls.
+and control messages include progress and completion boundaries. Data-only
+expression evaluation is implemented on the local redesign chain, including
+projection at `62e180afe` and the filter isolation change recorded as `c442efdb7`.
+It is not a property established by `99dc47788`, whose kernels see plain batches
+in bounded microbatch flows. Continuous scalar execution requires agreement on
+and porting of isolation, followed by controls for ordering and retractions.
+
+Comet integration on the product control is batch-only. Qualify package identity
+and library lifetime in an actual separate worker process or Kubernetes worker;
+an in-process actor run is a separate control. After a continuous host is chosen,
+gate that bridge with data and control messages through the actual worker path.
 
 A finite graph relation can become a batch input with explicit completion in
 an admitted plan. A live graph source additionally needs stable source identity,
@@ -138,12 +170,14 @@ new graph manifest and snapshot protocol needs its own failure controls.
 
 1. Preserve Nutmeg's existing relation behavior on the selected product host,
    replacing only its graph foundation after the core contract is reviewed.
-2. Review and port the package/identity/placement/resource contracts onto the
-   selected continuous-runtime foundation. Gate the actual combined host.
+2. After the continuous host is agreed, port generic package/identity/placement/
+   resource contracts independently of Grustic. Then gate Nutmeg on that host;
+   only the Nutmeg-specific step needs the new graph core.
 3. Independently add explicit Comet scalar export admission on the selected
-   supported host, then package and worker execution. This can proceed before
-   the continuous-runtime port in step 2. Keep the old scalar route as a control;
-   fail mismatched code and fields. Gate their combination when both are ready.
+   batch host, then actual worker-process execution and the new scalar/worker
+   admission contract. This can precede step 2. Keep the old scalar route as a
+   control; fail mismatched code and fields. Qualify continuous composition only
+   after the isolation and combined-host prerequisites are met.
 4. Admit batch graph materialized views, checking analysis has no effects,
    snapshot consistency, cancellation, work-directory isolation and result leases.
 5. Add durable graph artifact publication only through the accepted target
