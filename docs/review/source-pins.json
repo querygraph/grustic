@@ -117,9 +117,12 @@
   },
   "coordination": {
     "host": "Capitola",
-    "canonical_log": "/Users/alexy/src/grust-sdp/codex-to-fable.md",
-    "question": "CF-0806",
-    "pointer": "/Users/alexy/src/grust-sdp/codex-to-codex.md",
-    "acknowledgement": "not yet observed"
+    "canonical_log": "/Users/alexy/src/grust-sdp/codex-to-codex.md",
+    "lock": "/Users/alexy/src/grust-sdp/codex-to-codex.md.lock",
+    "question": "CF-0806 in former codex-to-fable.md channel",
+    "reply": "CF-0807, mirrored at 2026-11-13T22:04:05.295432+00:00 in codex-to-codex.md",
+    "acknowledgement": "reply read and acknowledged in codex-to-codex.md",
+    "scope": "source and direction confirmation; no maintainer acceptance",
+    "updated_utc": "2026-11-13T22:17:38.949867+00:00"
   }
 }

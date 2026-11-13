@@ -140,8 +140,10 @@ new graph manifest and snapshot protocol needs its own failure controls.
    replacing only its graph foundation after the core contract is reviewed.
 2. Review and port the package/identity/placement/resource contracts onto the
    selected continuous-runtime foundation. Gate the actual combined host.
-3. Add explicit Comet scalar export admission, then package and worker execution.
-   Keep the old scalar route as a control; fail mismatched code and fields.
+3. Independently add explicit Comet scalar export admission on the selected
+   supported host, then package and worker execution. This can proceed before
+   the continuous-runtime port in step 2. Keep the old scalar route as a control;
+   fail mismatched code and fields. Gate their combination when both are ready.
 4. Admit batch graph materialized views, checking analysis has no effects,
    snapshot consistency, cancellation, work-directory isolation and result leases.
 5. Add durable graph artifact publication only through the accepted target

@@ -57,8 +57,16 @@ follow from those tests.
 
 ## Review communication
 
-Alexy authorized questions to Capitola's Claude session. They were appended
-as CF-0806 in `/Users/alexy/src/grust-sdp/codex-to-fable.md`, the SDP protocol's
-canonical live log. An entry in `codex-to-codex.md` points to that message.
-Posting is not acknowledgement or human acceptance. Any subsequent reply
-will be recorded separately with its scope.
+Alexy authorized communication with Capitola's Claude session. Questions were
+posted as CF-0806 in the old `codex-to-fable.md` channel. Claude replied as
+CF-0807 and also in `codex-to-codex.md` at
+`2026-11-13T22:04:05.295432+00:00`.
+
+Alexy then designated `/Users/alexy/src/grust-sdp/codex-to-codex.md` as the live
+channel. Both sides use the persistent `codex-to-codex.md.lock`, shared for
+reads and exclusive during append. The original question remains referenced;
+new discussion stays in the designated file.
+
+[The handoff record](capitola-handoff.md) distinguishes peer confirmation from
+independent source verification. The reply confirms revisions and owner
+directions; it does not confer maintainer acceptance.

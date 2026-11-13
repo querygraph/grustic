@@ -73,9 +73,9 @@ cross-repository source manifest and a final combined gate.
 | C12 | `feat(graphframes): add matched traversal and PageRank contracts` | C11 | BFS/shortest-path/PageRank discriminating oracles, schema/default/result checks and downstream DataFrame operations |
 | C13 | `feat(graphframes): close the agreed public API inventory` | C12 | Several algorithm-family commits, each with classic/Connect references; every inventory row has evidence or an explicitly incomplete status |
 | C14 | `feat(extensions): port native relation ownership to the selected host` | C10, N6 | Real merged host gate for identity, placement, session state, indeterminate outcomes and cleanup |
-| C15 | `feat(extensions): integrate pinned Comet scalar exports` | C14 | Explicit export admission, independent SDK binary, worker identity, field/error/lifetime checks; relation ABI unchanged |
-| C16 | `feat(pipelines): admit batch graph materializations` | C11, C14, N7 | Dry run has no effects; actual SDP declaration and graph snapshot consistency on the combined host |
-| C17 | `feat(pipelines): publish recoverable graph snapshot artifacts` | C16 | Accepted authority, immutable manifests, lost replies/takeover/restart and failures at every publication boundary |
+| C15 | `feat(extensions): integrate pinned Comet scalar exports` | C10, N6; independent of C14 | Explicit export admission, independent SDK binary, worker identity, field/error/lifetime checks; relation ABI unchanged |
+| C16 | `feat(pipelines): admit batch graph materializations` | C11, N7; existing product host | Dry run has no effects; actual SDP declaration and graph snapshot consistency on the combined host |
+| C17 | `feat(pipelines): publish recoverable graph snapshot artifacts` | C14, C16 | Accepted authority, immutable manifests, lost replies/takeover/restart and failures at every publication boundary |
 | C18 | `feat(cosmolang): implement bounded revisioned exploration` | C10, N8 | One dispatcher for HTTP/MCP, lossless IDs, resource caps, retries, stale-view refusal and install acknowledgements |
 | C19 | `feat(cosmograph): connect the SDK to graph snapshot views` | C18 | Actual pinned SDK, Arrow loading, follow/expand/collapse and browser controls; software renderer distinguished from GPU measurements |
 | C20 | `feat(exploration): add indexed hierarchy and bounded prefetch` | C17, C19 | Multi-level membership and quotient invariants, degree/nearest-neighbor contracts, snapshot invalidation, budgeted speculation and no silent truncation |

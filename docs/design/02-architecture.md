@@ -94,7 +94,9 @@ is claimed by a similar type name.
 ## Keep semantics before selecting implementations
 
 The resolved plan must be fully typed, including explicit null-only values,
-nullable lists/elements and graph-valued expressions. Checked constructors
+nullable lists/elements, maps and graph-valued expressions. Define map key/value
+typing, null-key policy and equality before exposing shortest-path map results.
+Checked constructors
 establish scope, slot uniqueness, output shape and function binding. Errors
 carry source spans when available; programmatic callers receive structured
 locations. Deserialization and third-party constructors pass the same checks.
