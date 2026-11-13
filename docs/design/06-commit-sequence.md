@@ -94,7 +94,9 @@ but does not prevent independent core work after its own design is accepted.
 C14a's destination is currently undefined; memo decisions 1 and 4 must settle
 execution ownership and native interfaces first. C15a can target the working
 `99dc47788` batch host without waiting for that continuous host. Its batch gate
-does not cover control messages. A later continuous integration commit needs
+does not cover control messages. Actual workers on that product host require
+Kubernetes or a prior port of the missing separate-process launcher.
+A later continuous integration commit needs
 accepted and ported projection/filter isolation plus its own combined gate.
 C16 concerns batch materialized views, not the declined bounded microbatch
 streaming runtime. Its tests must also preserve the prohibition on eager schema

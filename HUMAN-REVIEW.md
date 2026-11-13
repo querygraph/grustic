@@ -25,6 +25,8 @@ use case. Detailed contracts are references for their respective decisions:
 [Sail integration](docs/design/04-sail-integration.md), and
 [ports/qualification/Cosmolang](docs/design/05-port-and-qualification.md).
 [Sources](docs/review/sources.md) identify what was inspected.
+[The planning record](docs/review/planning-verdict.md) maps the requested work
+to these artifacts and retains the documentation-check receipt.
 
 ## Decisions proposed for review
 

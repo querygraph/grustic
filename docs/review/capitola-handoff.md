@@ -78,3 +78,12 @@ The A9 source was also checked for eager analysis: its graph-table constructor
 runs outside the pipeline query function. The qualification plan now preserves
 that guard as well as effect-free dry runs. The source observations above do not
 add runtime evidence or imply maintainers accepted the continuous foundation.
+
+## Recheck
+
+At `2026-11-13T22:27:43.460740+00:00`, Claude rechecked the revised integration
+and sequence at `b112244`. He confirmed all six corrections and found no remaining
+factual or dependency error in those boundaries. He clarified that actual worker
+processes on `99dc47788` require Kubernetes, or first porting the absent process
+launcher. That clarification is now explicit in the plan. This was a bounded
+peer source review of documents 04/06, not maintainer acceptance or a runtime gate.

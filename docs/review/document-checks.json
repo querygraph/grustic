@@ -1,0 +1,141 @@
+{
+  "observed_utc": "2026-11-13T22:26:46.357147+00:00",
+  "source": "b112244b88309e8114c2dc7808c521950f338ef1",
+  "tree": "8357f48ab4b9b43b4943a6fdaa5520f7b3764158",
+  "verdict": "PASS: documentation structure, pins, local links and unchanged detached source",
+  "scope": "Does not qualify runtime, performance, human acceptance or unimplemented contracts",
+  "tracked_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "51a780f764f237bfe67ecd59d08f577c5c28f7e7e1ab962f61c8b3894e026c7c",
+      "bytes": 2090
+    },
+    {
+      "path": "HUMAN-REVIEW.md",
+      "sha256": "a1e8d36dbdb2f78055d88db3130505c1808d6bf827d368a78e43732dd6ec13bd",
+      "bytes": 4686
+    },
+    {
+      "path": "README.md",
+      "sha256": "689b6d3c8ca4da0f43f117bc693428a14cd27aa4b7ec89225587adb90cd31722",
+      "bytes": 650
+    },
+    {
+      "path": "docs/design/00-wave4-plan.md",
+      "sha256": "8e654e58eaa0b1d080fc3ca3280013b6d1136039936e8b966699e3b64f2c1778",
+      "bytes": 4388
+    },
+    {
+      "path": "docs/design/01-assessment.md",
+      "sha256": "1ba1bf43a8677db46bdc2b79c3edf8b114af017cd8514d03b4aef5935730930b",
+      "bytes": 10447
+    },
+    {
+      "path": "docs/design/02-architecture.md",
+      "sha256": "57f22a5b682c970682767dace4563e04cbf649e98d914550b4b0d5e6176a5f48",
+      "bytes": 10448
+    },
+    {
+      "path": "docs/design/03-spark-compatibility.md",
+      "sha256": "493e8b5783bf70d617cd0edf1217e69c867138859fa85deb1aed912aebc83453",
+      "bytes": 9044
+    },
+    {
+      "path": "docs/design/04-sail-integration.md",
+      "sha256": "2a10a5b5ac8071159d8dca347733ffb061f3dfa818b9b976fe404c9f3bf3c83c",
+      "bytes": 12025
+    },
+    {
+      "path": "docs/design/05-port-and-qualification.md",
+      "sha256": "94347720147822e6fb9fed153b49a411fd1941a1816082098a1740404f1784fe",
+      "bytes": 11613
+    },
+    {
+      "path": "docs/design/06-commit-sequence.md",
+      "sha256": "e5a9287527ea6e6fa5e6032e7e10409ffb666c0c76cafdf65b3a752b41d57f4f",
+      "bytes": 11589
+    },
+    {
+      "path": "docs/review/capitola-handoff.md",
+      "sha256": "06626a81b750a83e30dfe3760075fa9aed41e29874306cb4a8b6cff631cdcef0",
+      "bytes": 5908
+    },
+    {
+      "path": "docs/review/source-pins.json",
+      "sha256": "7d9496a8f220cb150d515295c8ecdc7e337b152ad7487bae18f0e44fd93ed6b5",
+      "bytes": 5950
+    },
+    {
+      "path": "docs/review/sources.md",
+      "sha256": "e5ab78d9184af3c654f1c2449bbe9a4d83ea98c05bb105cef12a4295ef3dfc3b",
+      "bytes": 8731
+    }
+  ],
+  "local_links_checked": 24,
+  "immutable_source_links_checked": 12,
+  "source_links": [
+    {
+      "repository": "querygraph/grust",
+      "commit": "58c01ed2db7e46e8637d247c9b62d0f4f1b3e086",
+      "path": "docs/reviews/grust-v2"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "60e4e90d24533d8c4678b6eb1bfbcb195e1fe5e7",
+      "path": "docs/reviews/grust-v2"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "60e4e90d24533d8c4678b6eb1bfbcb195e1fe5e7",
+      "path": "docs/reviews/grust-v2/wave-3/COMPLEX-SNB.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "d56a4993f3378fa4775ad261a7bc4926ef23c449",
+      "path": "docs/reviews/sem-research-2026-10-03/visualization/cosmolang/live/README.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/REDESIGN-REVIEW-PACKET.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/HUMAN-REVIEW.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/REDESIGN-PLAN.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/CLARITY.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/COMMIT-MAP.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/EXTENSIONS-ON-ARROW-C-ABI.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/EXTENSIONS-STREAMSOURCE-INTEGRATION.md"
+    },
+    {
+      "repository": "querygraph/grust",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "path": "docs/sail-declarative-pipelines/COMET-SCALAR-RESULTS.md"
+    }
+  ],
+  "head_unchanged": true,
+  "clean": true,
+  "detached": true
+}

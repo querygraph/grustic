@@ -144,8 +144,9 @@ and porting of isolation, followed by controls for ordering and retractions.
 
 Comet integration on the product control is batch-only. Qualify package identity
 and library lifetime in an actual separate worker process or Kubernetes worker;
-an in-process actor run is a separate control. After a continuous host is chosen,
-gate that bridge with data and control messages through the actual worker path.
+an in-process actor run is a separate control. On `99dc47788`, that requires
+Kubernetes or first porting the missing process launcher. After a continuous host
+is chosen, gate data and control messages through its actual worker path.
 
 A finite graph relation can become a batch input with explicit completion in
 an admitted plan. A live graph source additionally needs stable source identity,

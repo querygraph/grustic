@@ -123,12 +123,21 @@
     "reply": "CF-0807, mirrored at 2026-11-13T22:04:05.295432+00:00 in codex-to-codex.md",
     "acknowledgement": "reply read and acknowledged in codex-to-codex.md",
     "scope": "source and direction confirmation; no maintainer acceptance",
-    "updated_utc": "2026-11-13T22:26:00.679455+00:00",
+    "updated_utc": "2026-11-13T22:28:56.635801+00:00",
     "packet_review": {
       "reviewed_commit": "d05ceba794dc7dadaddb18c3d8bb53308668adaf",
       "reply_utc": "2026-11-13T22:19:18.728276+00:00",
       "finding_count": 6,
       "disposition": "Six corrections incorporated; no maintainer acceptance or new runtime verdict"
+    },
+    "packet_recheck": {
+      "reviewed_commit": "b112244b88309e8114c2dc7808c521950f338ef1",
+      "reply_utc": "2026-11-13T22:27:43.460740+00:00",
+      "scope": "04-sail-integration.md and 06-commit-sequence.md only; source/design review",
+      "peer_verdict": "All six corrections in place; no remaining factual or dependency error in those boundaries",
+      "clarification_incorporated": "Actual worker processes on product 99dc47788 require Kubernetes or a prior port of the missing launcher",
+      "maintainer_acceptance": false,
+      "runtime_gate": false
     }
   }
 }
