@@ -22,13 +22,13 @@ by this initial documentation series.
 
 | Document | Decision it supports |
 | --- | --- |
-| `01-assessment.md` | Is the Grust v2 direction suitable, and what must change before porting? |
-| `02-architecture.md` | What are the reusable contracts and dependency boundaries? |
-| `03-spark-compatibility.md` | How can Nutmeg track existing and proposed GraphFrames behavior? |
-| `04-sail-integration.md` | How do native relations, Comet scalars and pipelines participate? |
-| `05-port-and-qualification.md` | What gets ported, how is it qualified, and what is deferred? |
-| `06-commit-sequence.md` | Which design comes before each implementation increment? |
-| `../review/sources.md` | Which exact source revisions and external proposals informed this review? |
+| [01-assessment.md](01-assessment.md) | Is the Grust v2 direction suitable, and what must change before porting? |
+| [02-architecture.md](02-architecture.md) | What are the reusable contracts and dependency boundaries? |
+| [03-spark-compatibility.md](03-spark-compatibility.md) | How can Nutmeg track existing and proposed GraphFrames behavior? |
+| [04-sail-integration.md](04-sail-integration.md) | How do native relations, Comet scalars and pipelines participate? |
+| [05-port-and-qualification.md](05-port-and-qualification.md) | What gets ported, how is it qualified, and what is deferred? |
+| [06-commit-sequence.md](06-commit-sequence.md) | Which design comes before each implementation increment? |
+| [sources.md](../review/sources.md) | Which exact source revisions and external proposals informed this review? |
 
 The overview and assessment are the short decision path. The other documents
 supply distinct contracts for their implementers and reviewers.
@@ -63,7 +63,7 @@ Committing a proposal does not mark it accepted.
 Initialize the repository with separate documentation commits: this charter,
 source inventory and assessment, core architecture, Spark compatibility,
 Sail integration, then migration and qualification. Implementation commits
-follow in the dependency order proposed in `06-commit-sequence.md`.
+follow in the dependency order proposed in [06-commit-sequence.md](06-commit-sequence.md).
 
 Each code change contains one coherent behavior, tests, attribution and a
 manual reproduction. Review cumulative changes against the agreed base.
