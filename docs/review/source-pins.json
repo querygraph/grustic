@@ -1,0 +1,125 @@
+{
+  "observed_utc": "2026-11-13T22:03:51.467539+00:00",
+  "scope": "Source/design review; historical test receipts were inspected, no runtime gate rerun",
+  "sources": [
+    {
+      "name": "grust-main",
+      "repository": "https://github.com/querygraph/grust.git",
+      "ref_observed": "origin/main",
+      "commit": "58c01ed2db7e46e8637d247c9b62d0f4f1b3e086",
+      "tree": "5bf53dca020089569b1cf8f0ac405dd515a04983",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "grust-complex-snb",
+      "repository": "https://github.com/querygraph/grust.git",
+      "ref_observed": "origin/work/grust-v2-complex-snb",
+      "commit": "60e4e90d24533d8c4678b6eb1bfbcb195e1fe5e7",
+      "tree": "fb8454207033e652b13850fd3ad769eb2deebcce",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "cosmolang-live",
+      "repository": "https://github.com/querygraph/grust.git",
+      "ref_observed": "origin/work/cosmolang-live",
+      "commit": "d56a4993f3378fa4775ad261a7bc4926ef23c449",
+      "tree": "4de143d695c7e5dc8ebabba3b0bfc1c2eb8082db",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "grust-sdp-documents",
+      "repository": "https://github.com/querygraph/grust.git",
+      "ref_observed": "origin/work/sail-declarative-pipelines",
+      "commit": "e873f06b44110e74c1a0cc638283eecf11f45e20",
+      "tree": "5f831bd24f7cfe3d675593843646c6d0eec9c31a",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "sail-extensions",
+      "repository": "https://github.com/querygraph/sail.git",
+      "ref_observed": "origin/sail-extensions",
+      "commit": "a20d660d9f3439adcbeee3836edde94ecaaa6fc9",
+      "tree": "a187c323e1e034e65b506edb21e37045915783fd",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "sail-sdp-product",
+      "repository": "https://github.com/querygraph/sail.git",
+      "ref_observed": "origin/pipelines",
+      "commit": "99dc47788941daf28eec847527949a4cadafdbd2",
+      "tree": "e5d6784622c00dae3521558ed30214dfaf4fbe73",
+      "availability": "remote commit fetched locally"
+    },
+    {
+      "name": "work/streamsource-foundation-20261105",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "049017850928049f048fa79614bc13f0faa27102",
+      "tree": "5d67cdc81cdd9ba7eb18a74eda17d84b9e5d30c7",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "work/streamsource-comet-scalar-20261105",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "bfdecbcf90ca2a85e5122e9d45dd34ff0c8ca3ca",
+      "tree": "455101575ecbfbec6f843464ce178e0d09046f51",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "work/streamsource-projection-20261105",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "62e180afe565c76c6451023132cd92d1ab7a21ae",
+      "tree": "bb8699fdfbc4ca88fa6c0e816e189af80e560efd",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "work/streamsource-participation-20261105",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "cb2d58ab02da9ea1c7ef66326553772d47555959",
+      "tree": "f71f8c5c97b08baa0c7f0f914ea7a2e24d150622",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "work/projection-composition-20261106",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "c40e30efcae1a7549f408c56be84fd7bbe31e41e",
+      "tree": "b337dfd145db4773ba1aa019028a8e9c86bbaa67",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "work/delta-append-recovery-20261106",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "37837d20a713bfc9edede1d441fe142d7a382db2",
+      "tree": "21d95492300f0bb6ca6ac675c981b6c9b9828655",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    },
+    {
+      "name": "proto/p5-c-udf",
+      "repository": "https://github.com/querygraph/sail",
+      "commit": "ef7286ca28222d9f25b719aacda6baea2876a0de",
+      "tree": "c57be33a9fda02b95cbd8dcc63a629af57e5d59b",
+      "availability": "local-only committed source observed via SSH on Capitola"
+    }
+  ],
+  "spip": {
+    "url": "https://docs.google.com/document/d/1v8OEV5Qqk5LE1XID4ZiPF5rLkAk-Zz6fp0tns9Z_TA8/edit",
+    "export_sha256": "2536053b725ee4621fc9032c3df5a7f674ab523c2846b450c0dd665648683eb7",
+    "export_bytes": 16511,
+    "status_in_export": "Discussion",
+    "target_in_export": "Spark 4.5 subject to community approval and readiness"
+  },
+  "spark_poc": {
+    "url": "https://github.com/apache/spark/pull/58302",
+    "head": "9ba1b8e5a840478bedcac1e3a2090735d92b7739",
+    "state": "open",
+    "draft": true,
+    "relation_field_observed": "spark.connect.graphframes.GraphFramesAPI graph_frames = 49",
+    "api_response_sha256": "eaf9817069576ffe0579429d91a84c017fca683a1d5551b164c9377048454464"
+  },
+  "coordination": {
+    "host": "Capitola",
+    "canonical_log": "/Users/alexy/src/grust-sdp/codex-to-fable.md",
+    "question": "CF-0806",
+    "pointer": "/Users/alexy/src/grust-sdp/codex-to-codex.md",
+    "acknowledgement": "not yet observed"
+  }
+}
