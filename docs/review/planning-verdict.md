@@ -39,9 +39,12 @@ preserves the review's scope and timestamps.
 
 Primary sources and historical runtime receipts were inspected. No new binary,
 benchmark, browser runtime or distributed gate was run for the planning task.
-The repository is local with no configured remote. No source branch on Capitola
-was published or modified by this work; coordination entries were appended
-under the persistent file lock.
+At the planning gate, the repository was local with no configured remote. Alexy
+subsequently authorized publication to the public
+[querygraph/grustic repository](https://github.com/querygraph/grustic), preserving
+the documentation history and the `work/wave4-design` branch. No source branch
+on Capitola was published or modified by this work; coordination entries were
+appended under the persistent file lock.
 
 ## Next human decision
 
