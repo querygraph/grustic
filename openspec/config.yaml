@@ -1,0 +1,35 @@
+# Human-maintained. Agents propose changes to this file in a pull request.
+schema: spec-driven
+
+context: |
+  Grustic is a modular property-graph foundation for Rust: an engine-free LPG
+  model, Cypher parser, resolver and planner, with extension points at every
+  phase (syntax, functions, catalog, rules, physical properties, backends,
+  session), plus a reference backend built on arrow-rs. Nutmeg on Sail is the
+  first consumer and uses only public extension points.
+
+  Requirements in openspec/specs are the only requirements and the source of
+  truth. Human documents in README.md and docs/ give context but are not
+  requirements. Durable agent knowledge lives in .agents/project-memory/.
+  Planned changes wait as draft proposals in openspec/backlog/ until their
+  pull request moves them to openspec/changes/. AGENTS.md defines the workflow
+  and must be followed.
+
+rules:
+  proposal:
+    - State which human-scoped files (AGENTS.md "Human-scoped and agent-scoped code") the change is expected to touch, or "none".
+    - State whether the change introduces or changes unsafe code; if so, it needs per-site human approval before implementation.
+    - Name capabilities after durable behavior of Grustic components (for example `schema-catalog`, `cypher-syntax-extension`), never after the work item.
+  specs:
+    - Requirements describe observable behavior of public APIs, plans, diagnostics and results, never internal module or function names.
+    - Every requirement that can refuse or fail has a scenario for the refusal or error, including its typed error kind.
+    - Scenarios state inputs and expected outputs precisely enough to be automated as a test; if a scenario cannot be automated, say so and give the manual check.
+    - Correctness scenarios over LDBC workloads name the dataset, scale factor and reference result set.
+  design:
+    - Include design.md whenever the change adds or changes a public trait, type, error enum or constant, a dependency, or unsafe code.
+    - For each unsafe site, give the operation, why no safe alternative works, the soundness invariants and how they are tested.
+  tasks:
+    - Never add tasks that edit README.md or docs/; user-facing documentation is rustdoc on human-scoped items, and agent knowledge goes to .agents/project-memory/.
+    - Each scenario in the delta specs maps to at least one test task that names the requirement and scenario.
+    - Mark any task that edits a human-scoped file with "(human-scoped)".
+    - End with a task to update project memory when the change affects the architecture map, glossary or conventions.

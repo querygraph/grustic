@@ -1,0 +1,20 @@
+# Human-approved unsafe code sites. Agents never add or edit entries.
+#
+# Each site in the code carries
+#   #[expect(unsafe_code, reason = "UNSAFE-NNNN: <one line>")]
+# and every unsafe block inside it has a `// SAFETY:` comment.
+# An approval covers one site and its stated invariants. Moving the code,
+# widening the block or changing an invariant needs a new entry.
+#
+# Entry format:
+#
+# [[approval]]
+# id = "UNSAFE-0001"
+# crate = "grustic-reference"
+# item = "csr::Csr::neighbors_unchecked"
+# operation = "Unchecked slice indexing into the CSR offsets and targets arrays"
+# why_not_safe = "Bounds checks in the expansion inner loop; measured cost in the change design"
+# invariants = ["offsets is non-decreasing", "offsets.last() == targets.len()", "vertex < offsets.len() - 1"]
+# tests = ["csr_invariants property test", "Miri run of csr unit tests"]
+# change = "<openspec change id>"
+# approved_by = "<maintainer GitHub handle>"
