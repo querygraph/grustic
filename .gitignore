@@ -1,0 +1,14 @@
+# Machine-local agent notes and setup (see AGENTS.md).
+/.local/
+
+# Build output when CARGO_TARGET_DIR is not redirected.
+/target/
+
+# Python tooling caches.
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+
+# Agent containers
+.claude-container
+.dsh

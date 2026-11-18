@@ -1,0 +1,20 @@
+# Human-scoped paths. Changes require review by a human maintainer.
+# Replace the placeholder team with the maintainers' GitHub handles.
+
+/AGENTS.md                      @querygraph/grustic-maintainers
+/README.md                      @querygraph/grustic-maintainers
+/docs/                          @querygraph/grustic-maintainers
+/.github/                       @querygraph/grustic-maintainers
+/openspec/config.yaml           @querygraph/grustic-maintainers
+/unsafe-approvals.toml          @querygraph/grustic-maintainers
+
+/Cargo.toml                     @querygraph/grustic-maintainers
+/rust-toolchain.toml            @querygraph/grustic-maintainers
+/deny.toml                      @querygraph/grustic-maintainers
+/.cargo/                        @querygraph/grustic-maintainers
+/pyproject.toml                 @querygraph/grustic-maintainers
+/boundaries.toml                @querygraph/grustic-maintainers
+/crates/*/Cargo.toml            @querygraph/grustic-maintainers
+/crates/*/public-api.txt        @querygraph/grustic-maintainers
+/crates/*/src/lib.rs            @querygraph/grustic-maintainers
+/crates/*/src/api/              @querygraph/grustic-maintainers
